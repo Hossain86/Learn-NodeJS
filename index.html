@@ -12,7 +12,7 @@
     /* Sidebar Styles */
     .sidebar {
         position: fixed;
-        left: -250px; /* Initially Hidden */
+        left: -280px; /* Initially Hidden */
         top: 0;
         width: 250px;
         height: 100%;
@@ -35,21 +35,24 @@
         background: red;
         color: white;
         text-align: center;
-        padding: 10px;
+        padding: 0px;
+        top: 20px;
         cursor: pointer;
+        border-radius: 10px;
     }
 
     /* Button to toggle sidebar */
     .toggle-btn {
         position: fixed;
         left: 10px;
-        top: 10px;
+        top: 5px;
         background: #007bff;
         color: white;
         padding: 10px 15px;
         border: none;
         cursor: pointer;
         z-index: 1100;
+        border-radius: 10px;
     }
 
     /* List styles */
@@ -71,29 +74,21 @@
     .sidebar ul li a:hover {
         text-decoration: underline;
     }
+    .stackedit{
+      font-size: clamp(0.8rem, 1.2vw, 1.2rem);
+      max-width: 1200px ;
+    }
 </style>
 </head>
 
 <body class="stackedit">
-  <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+  <button class="toggle-btn" onclick="toggleSidebar()">☰ Content</button>
   <div class="stackedit__left sidebar" id="sidebar">
     <div class="close-btn" onclick="toggleSidebar()">✖ Close</div>
     <div class="stackedit__toc">
       
 <ul class="sideBox">
-<li><a href="#backend-developer-roadmap-in-node.js">Backend Developer Roadmap in Node.js</a>
-<ul>
-<li><a href="#🟢-1.-core-node.js-concepts-foundation">🟢 1. Core Node.js Concepts (Foundation)</a></li>
-<li><a href="#🚀-2.-express.js-basics-building-apis">🚀 2. Express.js Basics (Building APIs)</a></li>
-<li><a href="#🛠-3.-express.js-advanced-features">🛠 3. Express.js Advanced Features</a></li>
-<li><a href="#🔗-4.-database-connectivity">🔗 4. Database Connectivity</a></li>
-<li><a href="#🔐-5.-authentication--security">🔐 5. Authentication & Security</a></li>
-<li><a href="#📦-6.-apis--microservices">📦 6. APIs & Microservices</a></li>
-<li><a href="#⚙-7.-deployment--devops">⚙ 7. Deployment & DevOps</a></li>
-<li><a href="#⚡-8.-best-practices--code-quality">⚡ 8. Best Practices & Code Quality</a></li>
-<li><a href="#🏆-bonus-topics-for-mastery">🏆 Bonus Topics (For Mastery)</a></li>
-</ul>
-</li>
+
 <li><a href="#what-is-node.js">What is Node.js?</a>
 <ul>
 <li><a href="#key-features-of-node.js">Key Features of Node.js</a></li>
@@ -269,96 +264,6 @@
   </div>
   <div class="stackedit__right">
     <div class="stackedit__html">
-      <h1 id="backend-developer-roadmap-in-node.js"><strong>Backend Developer Roadmap in Node.js</strong></h1>
-<p>To become a proficient backend developer using <strong>Node.js</strong> and <strong>Express.js</strong>, you need to master a variety of topics ranging from core concepts to advanced techniques. Below is a step-by-step roadmap that covers foundational skills, practical applications, and advanced topics.</p>
-<hr>
-<h2 id="🟢-1.-core-node.js-concepts-foundation"><strong>🟢 1. Core Node.js Concepts (Foundation)</strong></h2>
-<p>These concepts are the building blocks of Node.js and are essential before diving into Express.js:</p>
-<ul>
-<li><strong>JavaScript Basics</strong>: Master ES6+, Async/Await, Promises, and Callbacks.</li>
-<li><strong>Node.js Architecture</strong>: Learn how the single-threaded, event-driven, non-blocking I/O model works.</li>
-<li><strong>Global Objects &amp; Modules</strong>: Understand <code>__dirname</code>, <code>__filename</code>, <code>require()</code>, and ES6 <code>import/export</code>.</li>
-<li><strong>File System Module (fs)</strong>: Learn how to read/write files and work with streams and buffers.</li>
-<li><strong>Events &amp; EventEmitter</strong>: Handle and trigger custom events.</li>
-<li><strong>HTTP Module</strong>: Build a basic server using <code>http.createServer</code>.</li>
-<li><strong>Process &amp; Child Processes</strong>: Work with environment variables (<code>process.env</code>) and explore <code>child_process</code>.</li>
-</ul>
-<hr>
-<h2 id="🚀-2.-express.js-basics-building-apis"><strong>🚀 2. Express.js Basics (Building APIs)</strong></h2>
-<p>Start building web applications by mastering Express.js basics:</p>
-<ul>
-<li><strong>Setting up an Express Server</strong>: Use <code>express()</code> and <code>app.listen()</code>.</li>
-<li><strong>Middleware in Express</strong>: Work with built-in, custom, and third-party middleware like <code>morgan</code>.</li>
-<li><strong>Routing in Express</strong>: Implement CRUD operations using <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>, <code>app.use()</code>, and <code>app.get()</code>.</li>
-<li><strong>Request &amp; Response Handling</strong>: Understand <code>req.body</code>, <code>req.params</code>, <code>req.query</code>, and <code>res.json()</code>.</li>
-<li><strong>Serving Static Files</strong>: Use <code>express.static()</code> to serve CSS, JS, and image files.</li>
-</ul>
-<hr>
-<h2 id="🛠-3.-express.js-advanced-features"><strong>🛠 3. Express.js Advanced Features</strong></h2>
-<p>Enhance the functionality of your APIs:</p>
-<ul>
-<li><strong>Error Handling Middleware</strong>: Build centralized error-handling systems with <code>next()</code>.</li>
-<li><strong>Asynchronous Code &amp; Error Handling</strong>: Use <code>async/await</code> with <code>try-catch</code> for seamless asynchronous operations.</li>
-<li><strong>Express Router</strong>: Modularize routes into separate files.</li>
-<li><strong>CORS &amp; Security</strong>: Secure your app with the <code>cors</code> package, <code>Helmet</code>, and rate limiting.</li>
-<li><strong>Logging &amp; Debugging</strong>: Implement logging systems using <code>winston</code> and <code>debug</code>.</li>
-</ul>
-<hr>
-<h2 id="🔗-4.-database-connectivity"><strong>🔗 4. Database Connectivity</strong></h2>
-<p>Backend APIs need robust database integrations. Learn to connect your backend to a database:</p>
-<ul>
-<li><strong>MongoDB with Mongoose</strong>: Master schema design, CRUD operations, and model creation.</li>
-<li><strong>SQL Databases</strong>: Work with PostgreSQL/MySQL using ORMs like Sequelize or Prisma.</li>
-<li><strong>Database Indexing &amp; Performance Optimization</strong>: Learn techniques to make queries faster and more efficient.</li>
-</ul>
-<hr>
-<h2 id="🔐-5.-authentication--security"><strong>🔐 5. Authentication &amp; Security</strong></h2>
-<p>Securing your backend is essential to protect user data:</p>
-<ul>
-<li><strong>JWT Authentication</strong>: Create and verify JSON Web Tokens for secure authentication.</li>
-<li><strong>OAuth &amp; Social Logins</strong>: Integrate Google, Facebook, and other social logins using <code>Passport.js</code>.</li>
-<li><strong>Hashing Passwords</strong>: Use <code>bcryptjs</code> to safely hash user passwords.</li>
-<li><strong>Session-based Authentication</strong>: Manage user sessions with <code>express-session</code> and cookies.</li>
-<li><strong>Role-based Access Control (RBAC)</strong>: Implement user roles (e.g., Admin/User) for permissions.</li>
-</ul>
-<hr>
-<h2 id="📦-6.-apis--microservices"><strong>📦 6. APIs &amp; Microservices</strong></h2>
-<p>Develop scalable and efficient architectures:</p>
-<ul>
-<li><strong>Building RESTful APIs</strong>: Learn REST principles and CRUD operations.</li>
-<li><strong>GraphQL Basics</strong>: Understand schema, queries, and mutations using Apollo Server.</li>
-<li><strong>WebSockets &amp; Real-time Applications</strong>: Use <code>socket.io</code> for chat apps and real-time notifications.</li>
-<li><strong>Rate Limiting &amp; API Security</strong>: Secure your APIs using the <code>express-rate-limit</code> package.</li>
-<li><strong>Caching</strong>: Optimize performance using Redis for caching frequently accessed data.</li>
-</ul>
-<hr>
-<h2 id="⚙-7.-deployment--devops"><strong>⚙ 7. Deployment &amp; DevOps</strong></h2>
-<p>Take your application live and ensure it is production-ready:</p>
-<ul>
-<li><strong>Environment Variables</strong>: Manage configurations with the <code>dotenv</code> package and <code>.env</code> files.</li>
-<li><strong>Deploying on Cloud</strong>: Deploy applications on platforms like <strong>Vercel</strong>, <strong>Render</strong>, <strong>DigitalOcean</strong>, <strong>AWS</strong>, and <strong>Heroku</strong>.</li>
-<li><strong>CI/CD Pipelines</strong>: Automate deployments using GitHub Actions, Docker, and Kubernetes.</li>
-<li><strong>Load Balancing &amp; Scaling</strong>: Use tools like the Cluster Module and <strong>PM2</strong> for process management.</li>
-<li><strong>Logging &amp; Monitoring</strong>: Monitor app health with <code>Winston</code>, <code>Morgan</code>, or <code>Sentry</code>.</li>
-</ul>
-<hr>
-<h2 id="⚡-8.-best-practices--code-quality"><strong>⚡ 8. Best Practices &amp; Code Quality</strong></h2>
-<p>Adopt best practices to write clean, maintainable, and scalable backend code:</p>
-<ul>
-<li><strong>Project Structure &amp; Clean Code</strong>: Use patterns like MVC (Model-View-Controller) and modularization.</li>
-<li><strong>Testing</strong>: Implement testing frameworks like <strong>Jest</strong>, <strong>Mocha</strong>, <strong>Chai</strong>, and <strong>Supertest</strong> for API testing.</li>
-<li><strong>Performance Optimization</strong>: Use techniques like compression, lazy loading, and caching.</li>
-</ul>
-<hr>
-<h2 id="🏆-bonus-topics-for-mastery"><strong>🏆 Bonus Topics (For Mastery)</strong></h2>
-<p>Go beyond the basics to stand out as an expert backend developer:</p>
-<ul>
-<li><strong>Event-Driven Architecture</strong>: Leverage Node.js Event Emitters or tools like <strong>Kafka</strong> and <strong>RabbitMQ</strong>.</li>
-<li><strong>Serverless Functions</strong>: Build lightweight backend logic using <strong>AWS Lambda</strong> or <strong>Firebase Functions</strong>.</li>
-<li><strong>Blockchain &amp; Smart Contracts</strong>: Explore backend development for decentralized applications by interacting with <strong>Ethereum</strong>.</li>
-</ul>
-<hr>
-<p>Node.js and Express.js offer a robust foundation for backend development. This roadmap provides the step-by-step journey you need to become a highly skilled developer, from foundational knowledge to advanced and industry-specific expertise. 🚀</p>
 <h1 id="what-is-node.js"><strong>What is Node.js?</strong></h1>
 <p><strong>Node.js</strong> is an open-source, cross-platform JavaScript runtime environment that enables developers to execute JavaScript code outside a browser. It is widely used to build <strong>scalable</strong> and <strong>high-performance</strong> applications.</p>
 <hr>
